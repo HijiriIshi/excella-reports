@@ -97,7 +97,7 @@ public class RemoveAdapter extends ReportProcessAdaptor {
                 for ( int colIndex = firstColNum; colIndex <= lastColNum; colIndex++) {
                     Cell cell = row.getCell( colIndex);
                     if ( cell != null) {
-                        if ( cell.getCellTypeEnum() == CellType.STRING && cell.getStringCellValue().contains( RemoveParamParser.DEFAULT_TAG)) {
+                        if ( cell.getCellType() == CellType.STRING && cell.getStringCellValue().contains( RemoveParamParser.DEFAULT_TAG)) {
                             // タグのパラメータを取得
                             String[] paramArray = getStrParam( sheet, rowIndex, colIndex);
 

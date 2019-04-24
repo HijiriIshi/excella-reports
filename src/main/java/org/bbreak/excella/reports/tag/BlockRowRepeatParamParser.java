@@ -142,7 +142,7 @@ public class BlockRowRepeatParamParser extends ReportsTagParser<Object[]> {
 
             // parse結果オブジェクト
             ParsedReportInfo parsedReportInfo = new ParsedReportInfo();
-            List<Object> resultList = new ArrayList<Object>();
+            List<Object> resultList = new ArrayList<>();
 
             // ブロック置換後最終座標
             int finalBlockRowIndex = 0;
@@ -163,7 +163,7 @@ public class BlockRowRepeatParamParser extends ReportsTagParser<Object[]> {
             List<SingleParamParser> singleParsers = getSingleReplaceParsers( reportsParserInfo);
 
             // POJOをParamInfoに変換する
-            List<ParamInfo> paramInfoList = new ArrayList<ParamInfo>();
+            List<ParamInfo> paramInfoList = new ArrayList<>();
             for ( Object obj : paramInfos) {
                 if ( obj instanceof ParamInfo) {
                     paramInfoList.add( ( ParamInfo) obj);
@@ -202,7 +202,7 @@ public class BlockRowRepeatParamParser extends ReportsTagParser<Object[]> {
             }
 
             // duplicateParams定義 → 単純置換タグ形式としてエントリのみを追加
-            Map<String, Object> unduplicableParamMap = new HashMap<String, Object>();
+            Map<String, Object> unduplicableParamMap = new HashMap<>();
             if ( paramDef.containsKey( PARAM_DUPLICATE)) {
                 String[] params = paramDef.get( PARAM_DUPLICATE).split( ";");
                 for ( String param : params) {
@@ -501,7 +501,7 @@ public class BlockRowRepeatParamParser extends ReportsTagParser<Object[]> {
 
             // タグ除去
             if ( removeTag) {
-                tagCell.setCellType( CellType.BLANK);
+                tagCell.setBlank();
             }
 
             // 解析結果
@@ -532,7 +532,7 @@ public class BlockRowRepeatParamParser extends ReportsTagParser<Object[]> {
      */
     private List<SingleParamParser> getSingleReplaceParsers( ReportsParserInfo reportsParserInfo) {
         List<ReportsTagParser<?>> parsers = reportsParserInfo.getReportParsers();
-        List<SingleParamParser> singleParsers = new ArrayList<SingleParamParser>();
+        List<SingleParamParser> singleParsers = new ArrayList<>();
         for ( ReportsTagParser<?> reportsParser : parsers) {
             if ( reportsParser instanceof SingleParamParser) {
                 singleParsers.add( ( SingleParamParser) reportsParser);
